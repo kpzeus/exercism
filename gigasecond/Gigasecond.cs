@@ -2,8 +2,13 @@ using System;
 
 public static class Gigasecond
 {
+    const double Giga = 1000 * 1000 * 1000;
+
     public static DateTime Add(DateTime moment)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        if (moment == null)
+            return moment;
+
+        return moment.AddSeconds(Giga);
     }
 }
