@@ -1,0 +1,6 @@
+CollatzConjectureTests.Zero_steps_for_one
+CollatzConjectureTests.Divide_if_even
+CollatzConjectureTests.Even_and_odd_steps
+CollatzConjectureTests.Large_number_of_even_and_odd_steps
+CollatzConjectureTests.Zero_is_an_error
+CollatzConjectureTests.Negative_value_is_an_error

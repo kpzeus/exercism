@@ -1,0 +1,10 @@
+PangramTests.Empty_sentence
+PangramTests.Perfect_lower_case
+PangramTests.Only_lower_case
+PangramTests.Missing_the_letter_x
+PangramTests.Missing_the_letter_h
+PangramTests.With_underscores
+PangramTests.With_numbers
+PangramTests.Missing_letters_replaced_by_numbers
+PangramTests.Mixed_case_and_punctuation
+PangramTests.Case_insensitive

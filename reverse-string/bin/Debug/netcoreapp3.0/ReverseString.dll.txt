@@ -1,0 +1,6 @@
+ReverseStringTests.An_empty_string
+ReverseStringTests.A_word
+ReverseStringTests.A_capitalized_word
+ReverseStringTests.A_sentence_with_punctuation
+ReverseStringTests.A_palindrome
+ReverseStringTests.An_even_sized_word
