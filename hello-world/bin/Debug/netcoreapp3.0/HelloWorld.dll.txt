@@ -1,1 +1,0 @@
-HelloWorldTests.Say_hi_

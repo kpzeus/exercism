@@ -1,3 +1,0 @@
-TwoFerTests.No_name_given
-TwoFerTests.A_name_given
-TwoFerTests.Another_name_given
