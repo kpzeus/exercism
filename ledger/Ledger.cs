@@ -24,60 +24,46 @@ public static class Ledger
        return new LedgerEntry(DateTime.Parse(date, CultureInfo.InvariantCulture), desc, chng / 100.0m);
    }
 
-   private static CultureInfo CreateCulture(string cur, string loc)
-   {
-       string curSymb = null;
-       int curNeg = 0;
-       string datPat = null;
+    private static CultureInfo CreateCulture(string cur, string loc)
+    {
+        string curSymb = null;
+        int curNeg = 0;
+        string datPat = null;
+        string datSep = null;
 
-       if (cur != "USD" && cur != "EUR")
-       {
-           throw new ArgumentException("Invalid currency");
-       }
-       else
-       {
-           if (loc != "nl-NL" && loc != "en-US")
-           {
-               throw new ArgumentException("Invalid currency");
-           }
+        if (loc != "nl-NL" && loc != "en-US")
+        {
+            throw new ArgumentException("Invalid currency");
+        }
 
-           if (cur == "USD")
-           {
-               if (loc == "en-US")
-               {
-                   curSymb = "$";
-                   datPat = "MM/dd/yyyy";
-               }
-               else if (loc == "nl-NL")
-               {
-                   curSymb = "$";
-                   curNeg = 12;
-                   datPat = "dd/MM/yyyy";
-               }
-           }
+        if (cur != "USD" && cur != "EUR")
+        {
+            throw new ArgumentException("Invalid currency");
+        }
 
-           if (cur == "EUR")
-           {
-               if (loc == "en-US")
-               {
-                   curSymb = "€";
-                   datPat = "MM/dd/yyyy";
-               }
-               else if (loc == "nl-NL")
-               {
-                   curSymb = "€";
-                   curNeg = 12;
-                   datPat = "dd/MM/yyyy";
-               }
-           }
-       }
+        curSymb = "$";
+        datPat = "MM/dd/yyyy";
+        datSep = "/";
 
-       var culture = new CultureInfo(loc);
-       culture.NumberFormat.CurrencySymbol = curSymb;
-       culture.NumberFormat.CurrencyNegativePattern = curNeg;
-       culture.DateTimeFormat.ShortDatePattern = datPat;
-       return culture;
-   }
+        if (loc == "nl-NL")
+        {
+            curNeg = 12;
+            datPat = "dd/MM/yyyy";
+            datSep = "-";
+        }
+
+        if (cur == "EUR")
+        {
+            curSymb = "€";
+        }
+
+        var culture = new CultureInfo(loc);
+        culture.NumberFormat.CurrencySymbol = curSymb;
+        culture.NumberFormat.CurrencyNegativePattern = curNeg;
+        culture.DateTimeFormat.ShortDatePattern = datPat;
+        culture.DateTimeFormat.DateSeparator = datSep;
+        return culture;
+    }
 
    private static string PrintHead(string loc)
    {
@@ -99,7 +85,7 @@ public static class Ledger
        }
    }
 
-   private static string Date(IFormatProvider culture, DateTime date) => date.ToString("d", culture);
+   private static string Date(IFormatProvider culture, DateTime date) => date.ToString("d" , culture);
 
    private static string Description(string desc)
    {
